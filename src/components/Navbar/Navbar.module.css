@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.navbar {
+  grid-area: n;
+  background-color: #e7edf2;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Nunito Sans, sans-serif;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70px 70px 70px;
+  height: 100vh;
+}
+
+.item {
+  display: grid;
+  text-align: center;
+}
+
+.item img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+  height: 32px;
+
+}
+
+.item a {
+  color: #838daa;
+  position: relative;
+  text-decoration: none;
+  transition: color .4s ease-out
+}
+
+.item a:hover{
+  color: #8224e3;
+  right: 0;
+  text-decoration: none;
+}
+
+.item a:hover::after{
+  border-color: #457DFB;
+  right: 0;
+}
+
+.item a::after{
+  border-radius: 2em;
+  border-top: .2em solid #b02f2f;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: .14em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1),
+              border-color .4s ease-out;
+}
+
+
+.item a:hover:after{
+  animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
+  border-color: #8224e3;
+}
+
+@keyframes anchor-underline {
+  0%, 10% {
+    left: 0;
+    right: 100%;
+  }
+  40%, 60% {
+    left: 0;
+    right: 0;
+  }
+  90%, 100% {
+    left: 100%;
+    right: 0;
+  }
+}
+
+
+a.active {
+  color: #8224e3;
+  font-weight: 800;
+}
+
+

@@ -1,0 +1,25 @@
+.app-wriper {
+  margin: 0 auto;
+  width: 1280px;
+  display: grid;
+  grid-template-areas:
+    "h h"
+    "n c";
+
+
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /*grid-gap: 10px;*/
+}
+
+
+.app-wriper-content {
+  grid-area: c;
+}
+
+.cover img {
+  width: 100%;
+  height: 20em;
+  border-radius: 30px;
+}
