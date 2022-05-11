@@ -8,11 +8,15 @@ type DialogsTypeProps = {
 
 type MessagesTypeProps = {
     title: string
+    id: number
+}
+type ConstTypeProps = {
+    title: string
 }
 
-const DialogItem: React.FC<DialogsTypeProps> = (props) => {
+const DialogItem = (props: DialogsTypeProps) => {
 
-    let path = "/dialogs/" + props.id;
+    var path = "/dialogs/" + props.id;
 
     return (
         <div className={s.dialog + ' ' + s.pp}>
@@ -22,7 +26,7 @@ const DialogItem: React.FC<DialogsTypeProps> = (props) => {
 }
 
 
-const Message: React.FC<MessagesTypeProps> = (props) => {
+const Message = (props: MessagesTypeProps) => {
     return (
         <div className={s.message}>
             {props.title}
@@ -30,24 +34,49 @@ const Message: React.FC<MessagesTypeProps> = (props) => {
     )
 }
 
-const Dialogs: React.FC<MessagesTypeProps> = (props) => {
+let dialogsData = [
+    { id: 1, name: "Egor" },
+    { id: 2, name: "Kolya" },
+    { id: 3, name: "Kuprovskiy" },
+    { id: 4, name: "Albina" },
+    { id: 5, name: "Tolyan" },
+    { id: 6, name: "MehmetIbnAbdul" },
+    { id: 7, name: "Viktor " }
+]
+
+let messagesData = [
+    { id: 1, name: "Hi" },
+    { id: 2, name: "How are you" },
+    { id: 3, name: "It's paw paw buggie" },
+    { id: 4, name: "It's paw paw buggie" },
+    { id: 5, name: "It's paw paw buggie" },
+    { id: 6, name: "It's paw paw buggie" },
+    { id: 7, name: "It's paw paw buggie " }
+]
+
+
+
+const Dialogs = (props: ConstTypeProps) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs_items}>
-                <DialogItem id={1} title="Egor" />
-                <DialogItem id={2} title="Kolya" />
-                <DialogItem id={3} title="Kuprovskiy" />
-                <DialogItem id={4} title="Albina" />
-                <DialogItem id={5} title="Tolyan" />
-                <DialogItem id={6} title="MehmetIbnAbdul" />
-                <DialogItem id={7} title="Viktor" />
+                <DialogItem id={dialogsData[0].id} title={dialogsData[0].name} />
+                <DialogItem id={dialogsData[1].id} title={dialogsData[1].name} />
+                <DialogItem id={dialogsData[2].id} title={dialogsData[2].name} />
+                <DialogItem id={dialogsData[3].id} title={dialogsData[3].name} />
+                <DialogItem id={dialogsData[4].id} title={dialogsData[4].name} />
+                <DialogItem id={dialogsData[5].id} title={dialogsData[5].name} />
+                <DialogItem id={dialogsData[6].id} title={dialogsData[6].name} />
+
             </div>
             <div className={s.messages}>
-                <Message title="Hi" />
-                <Message title="How are you" />
-                <Message title="It's paw paw buggie" />
-                <Message title="It's paw paw buggie" />
-                <Message title="It's paw paw buggie" />
+                <Message title={messagesData[0].name} id={messagesData[0].id}/>
+                <Message title={messagesData[1].name} id={messagesData[1].id}/>
+                <Message title={messagesData[2].name} id={messagesData[2].id}/>
+                <Message title={messagesData[3].name} id={messagesData[3].id}/>
+                <Message title={messagesData[4].name} id={messagesData[4].id}/>
+                <Message title={messagesData[5].name} id={messagesData[5].id}/>
+                <Message title={messagesData[6].name} id={messagesData[6].id}/>
             </div>
         </div>
     )
