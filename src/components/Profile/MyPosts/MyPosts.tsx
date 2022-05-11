@@ -12,9 +12,12 @@ type PostDataType = {
 let postData = [
   { id: 1, post: "Hi, it's my first post", likes: 15 },
   { id: 2, post: "Hi, it's my second post", likes: 20 },
+  { id: 2, post: "Hi, it's my third post", likes: 24 },
 ]
 
-
+let postsData =
+  postData
+    .map(el => (<Post id={el.id} message={el.post} likes={el.likes} />))
 
 const MyPosts = () => {
   return (
@@ -25,8 +28,7 @@ const MyPosts = () => {
         <textarea></textarea>
       </div>
       <div className={s.posts}>
-        <Post id={postData[0].id} message={postData[0].post} likes={postData[0].likes} />
-        <Post id={postData[0].id} message={postData[0].post} likes={postData[0].likes} />
+        {postsData}
       </div>
       <div>
         <button className={s.button}>Publish post</button>

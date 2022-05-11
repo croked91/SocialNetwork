@@ -1,5 +1,6 @@
 import s from './Dialogs.module.css'
 import { BrowserRouter, NavLink } from 'react-router-dom'
+import { idText } from 'typescript'
 
 type DialogsTypeProps = {
     title: string
@@ -44,6 +45,9 @@ let dialogsData = [
     { id: 7, name: "Viktor " }
 ]
 
+let newDialogsData = dialogsData.map(name => <DialogItem key={name.id.toString()} id={name.id} title={name.name} />)
+
+
 let messagesData = [
     { id: 1, name: "Hi" },
     { id: 2, name: "How are you" },
@@ -54,29 +58,16 @@ let messagesData = [
     { id: 7, name: "It's paw paw buggie " }
 ]
 
-
+let newMessagesData = messagesData.map(message => <Message key={message.id.toString()} title={message.name} id={message.id} />)
 
 const Dialogs = (props: ConstTypeProps) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs_items}>
-                <DialogItem id={dialogsData[0].id} title={dialogsData[0].name} />
-                <DialogItem id={dialogsData[1].id} title={dialogsData[1].name} />
-                <DialogItem id={dialogsData[2].id} title={dialogsData[2].name} />
-                <DialogItem id={dialogsData[3].id} title={dialogsData[3].name} />
-                <DialogItem id={dialogsData[4].id} title={dialogsData[4].name} />
-                <DialogItem id={dialogsData[5].id} title={dialogsData[5].name} />
-                <DialogItem id={dialogsData[6].id} title={dialogsData[6].name} />
-
+                {newDialogsData}
             </div>
             <div className={s.messages}>
-                <Message title={messagesData[0].name} id={messagesData[0].id}/>
-                <Message title={messagesData[1].name} id={messagesData[1].id}/>
-                <Message title={messagesData[2].name} id={messagesData[2].id}/>
-                <Message title={messagesData[3].name} id={messagesData[3].id}/>
-                <Message title={messagesData[4].name} id={messagesData[4].id}/>
-                <Message title={messagesData[5].name} id={messagesData[5].id}/>
-                <Message title={messagesData[6].name} id={messagesData[6].id}/>
+                {newMessagesData}
             </div>
         </div>
     )
