@@ -17,7 +17,7 @@ let messagesData = [
   { id: 7, name: "It's paw paw buggie " }
 ]
 
-let newMessagesData = messagesData.map(message => <Message key={message.id.toString()} title={message.name} id={message.id} />)
+
 
 let dialogsData = [
   { id: 1, name: "Egor" },
@@ -29,7 +29,7 @@ let dialogsData = [
   { id: 7, name: "Viktor " }
 ]
 
-let newDialogsData = dialogsData.map(name => <DialogItem id={name.id} title={name.name} />)
+
 
 
 let postData = [
@@ -38,7 +38,7 @@ let postData = [
   { id: 2, post: "Hi, it's my third post", likes: 24 },
 ]
 
-let postsData = postData.map(el => (<Post id={el.id} message={el.post} likes={el.likes} />))
+
 
 test('renders learn react link', () => {
   <App state={state}/>

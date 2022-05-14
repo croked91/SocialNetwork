@@ -1,18 +1,18 @@
 import s from './Dialogs.module.css'
 import { DialogItem } from './DialogItem/DialogsItem'
 import { Message } from './Messages/MessagesItem'
-import { DialogType, MessageType } from '../../App'
+import { DialogType, MessageType, MessagesType } from '../../App'
 
 type ConstTypeProps = {
     title: string
-    state: { dialogs: DialogType[]; messages: MessageType[]; }
+    state: { dialogs: DialogType[]; messages: MessagesType;}
 }
 
 
 const Dialogs = (props: ConstTypeProps) => {
     
-    let newDialogsData = props.state.dialogs.map(dialog => <DialogItem id={dialog.id} title={dialog.name} />)
-    let newMessagesData = props.state.messages.map(message => <Message title={message.name} id={message.id} />)
+    let newDialogsData = props.state.dialogs.map(dialog => <DialogItem avaSourse={dialog.avaSourse} id={dialog.id} title={dialog.name} />)
+    let newMessagesData = props.state.messages.message.map(message => <Message user={props.state.messages.user} title={message.name} id={message.id} authorId={message.authorId}/>)
     
     return (
         <div className={s.dialogs}>

@@ -5,22 +5,27 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
-type Khui = string
-
 export type PostType = {
-    id: number,
-    post: string,
+    id: number
+    post: string
     likes: number
 }
 
 export type DialogType = {
   id: number
   name: string
+  avaSourse: string
 }
 
 export type MessageType = {
   id: number
   name: string
+  authorId: number
+}
+
+export type MessagesType = {
+  user: string
+  message: MessageType[]
 }
 
 export type AppPropsType = {
@@ -28,7 +33,7 @@ export type AppPropsType = {
     profilePage: { posts: PostType[] };
     dialogsPage: {
       dialogs: DialogType[];
-      messages: MessageType[];
+      messages: MessagesType;
     };
   }
 }

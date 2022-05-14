@@ -1,5 +1,4 @@
 import s from './MyPosts.module.css'
-import Post from './Posts/Post';
 
 
 type PostDataType = {
