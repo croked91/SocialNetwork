@@ -1,36 +1,23 @@
-import { Action } from 'history'
-import React from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
-import { isPropertySignature } from 'typescript'
 import s from './Navbar.module.css'
-console.log(s)
+import { Path } from './Path/Path';
+import { SideItemType, FriendsType } from '../../App';
+import { Friends } from './Friends/Friends';
 
-type PathType = {
-  title: string
-  imgPath: string
+type NavbarType = {
+  state: { sideItems: SideItemType[]; friends: FriendsType}
 }
 
 
-const Path: React.FC<PathType> = (props) => {
-  return (
-    <div className={s.item} >
-      <img src={props.imgPath} />
-      <NavLink to={"/" + props.title} className={({ isActive }) => (isActive ? s.active : '')}> {props.title} </NavLink>
+
+export const Navbar = (props: NavbarType) => {
+  let sideData = props.state.sideItems.map(el => (<Path id={el.id} icon={el.icon} title={el.title} />))
+  return <nav className={s.navbarParent}>
+    <div className={s.navbar}>{sideData}</div>
+    <div className={s.frfr}>
+    <Friends blockTitle={props.state.friends.blockTitle} state={props.state.friends}/>
     </div>
-  )
-}
-
-const Navbar = () => {
-  return <nav className={s.navbar} >
-    <Path imgPath="https://img.icons8.com/nolan/64/electronic-identity-card.png" title="Profile" />
-    <Path imgPath="https://img.icons8.com/nolan/64/messages-mac.png" title="Dialogs" />
-    <Path imgPath="https://img.icons8.com/nolan/64/news.png" title="News" />
-    <Path imgPath="https://img.icons8.com/nolan/64/audio-wave.png" title="Music" />
-    <Path imgPath="https://img.icons8.com/nolan/64/settings--v1.png" title="Settings" />
-    <Path imgPath="https://img.icons8.com/nolan/64/gallery.png" title="Photos" />
   </nav >
 }
 
-export default Navbar;
 
-{/* <NavLink to="/profile" className={s.active}  > Profile </NavLink> */ }
+

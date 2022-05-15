@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 .navbar {
-  grid-area: n;
   background-color: #e7edf2;
   padding: 10px;
   font-size: 18px;
@@ -10,7 +9,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 70px 70px 70px;
-  height: 100vh;
+  height: 30vh;
+
 }
 
 .item {
@@ -83,4 +83,48 @@ a.active {
   font-weight: 800;
 }
 
+.friendBlock {
+  display: grid;
+  padding-left: 20px;
+  align-items: center;
+}
 
+.friendBlock .img {
+  height: 50px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.friendBlock .name {
+  text-align: center;
+}
+
+.parentFriends {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  align-items: center;
+  color: #838daa;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Nunito Sans, sans-serif;
+  font-weight: 500;
+  
+}
+
+.friendTitle {
+  text-align: center;
+  color: #838daa;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Nunito Sans, sans-serif;
+  font-weight: 500;
+}
+
+.frfr {
+  display: grid;
+  background-color: #e7edf2;
+  height: 70vh;
+}
