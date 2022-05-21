@@ -2,7 +2,7 @@ import { rerenderEntireTree } from "../rerender"
 
 type PostType = {
     id: number
-    post: string
+    post: string 
     likes: number
   }
   
