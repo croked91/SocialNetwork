@@ -1,6 +1,7 @@
 import s from './../Dialogs.module.css'
 import { BrowserRouter, NavLink } from 'react-router-dom'
 import { idText } from 'typescript'
+import { InputButton } from './InputButton/InputButton'
 
 
 
