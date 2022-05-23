@@ -1,6 +1,6 @@
 import s from './MyPosts.module.css'
-import React, { useRef, useState } from 'react'
-import { PostType, MessageType } from '../../../App'
+import React, { useState } from 'react'
+import { PostType } from '../../../App'
 import Post from '../MyPosts/Posts/Post';
 
 
