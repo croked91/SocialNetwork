@@ -4,7 +4,7 @@ import './index.css';
 import { Message } from './components/Dialogs/Messages/MessagesItem';
 import { DialogItem } from './components/Dialogs/DialogItem/DialogsItem';
 import Post from './components/Profile/MyPosts/Posts/Post';
-import { state, addPost }  from './redux/state'
+import { state, addPost, updateNewPostText }  from './redux/state'
 
 
 
@@ -42,7 +42,7 @@ let postData = [
 
 
 test('renders learn react link', () => {
-  <App state={state} addPost={addPost}/>
+  <App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

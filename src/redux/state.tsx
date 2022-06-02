@@ -48,7 +48,7 @@ type PostType = {
       sideItems: SideItemType[],
       friends: FriendsType
     }
-    profilePage: { posts: PostType[] };
+    profilePage: { posts: PostType[]; newPostText: string };
     dialogsPage: {
       dialogs: DialogType[];
       messages: MessagesType;
@@ -63,7 +63,8 @@ export let state = {
             { id: 1, post: "Hi, it's my first post", likes: 15 },
             { id: 2, post: "Hi, it's my second post", likes: 20 },
             { id: 3, post: "Hi, it's my third post", likes: 24 },
-        ]
+        ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogs: [
@@ -118,9 +119,20 @@ export let state = {
     }
 }
 
-export const addPost = (postMessage: PostType) => {
+export const addPost = () => {
+    let postMessage = {
+      id : 5,
+      post: state.profilePage.newPostText,
+      likes: 0
+    }
     state.profilePage.posts.push(postMessage)
+    state.profilePage.newPostText = ""
     rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText: string) => {
+  state.profilePage.newPostText = newText
+  rerenderEntireTree(state)
 }
 
 

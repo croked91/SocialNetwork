@@ -6,19 +6,21 @@ import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
 
+
 export type AppPropsType = {
   state: {
     sidebar: {
       sideItems: SideItemType[],
       friends: FriendsType
     }
-    profilePage: { posts: PostType[] };
+    profilePage: { posts: PostType[]; newPostText:string };
     dialogsPage: {
       dialogs: DialogType[];
       messages: MessagesType;
     };
   }
-  addPost: (postMessage: PostType)=>void
+  addPost: ()=>void
+  updateNewPostText: (newText: string) => void
 }
 
 export type PostType = {
@@ -72,7 +74,7 @@ const App = (props: AppPropsType) => {
       <Routes>
         <Route path='/' element={<div className='app-wriper-content'> <Outlet /> </div>} />
         <Route path='dialogs/*' element={<Dialogs title='Dialogs' state={props.state.dialogsPage} />} />
-        <Route path='profile' element={<Profile title='Profile' state={props.state.profilePage} addPost={props.addPost}/>} />
+        <Route path='profile' element={<Profile title='Profile' state={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
       </Routes>
     </div>
   )
