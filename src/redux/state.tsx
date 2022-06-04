@@ -1,4 +1,4 @@
-let rerenderEntireTree = () => {
+let reRend = () => {
 
 }
 
@@ -129,15 +129,15 @@ export const addPost = () => {
     }
     state.profilePage.posts.push(postMessage)
     state.profilePage.newPostText = ""
-    rerenderEntireTree()
+    reRend()
 }
 
 export const updateNewPostText = (newText: string) => {
   state.profilePage.newPostText = newText
-  rerenderEntireTree()
+  reRend()
 }
 
 
-export const subscribe = (observer: ()=>void) => {
-  rerenderEntireTree = observer
+export const subscribe = (rerenderEntireTree: ()=>void) => {
+  reRend = rerenderEntireTree
 }

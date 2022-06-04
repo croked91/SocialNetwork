@@ -12,7 +12,7 @@ type FriendsComponentsType = {
 export const Friends = (props:FriendsComponentsType) => {
 let threeFriends = props.state.friendsList.filter(friend => friend.id <= 3)
 let threeMapFriends = threeFriends.map(friend => (<FriendBlock name={friend.name} ava={friend.avaSourse} />))
-    console.log(threeMapFriends);
+
     
 return(
         <div>
