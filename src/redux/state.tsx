@@ -141,3 +141,7 @@ export const updateNewPostText = (newText: string) => {
 export const subscribe = (rerenderEntireTree: ()=>void) => {
   reRend = rerenderEntireTree
 }
+ 
+const foo =()=> {
+  
+}
