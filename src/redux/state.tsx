@@ -2,6 +2,10 @@ let reRend = () => {
 
 }
 
+let i = () => {
+  
+}
+
 type PostType = {
     id: number
     post: string 
