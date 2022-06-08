@@ -26,15 +26,6 @@ type PostTextType = {
   
   let newPostElement = React.createRef<HTMLInputElement>()
 
-  // const [postText, setPostText] = useState<PostTextType>({ id: 1, post: '', likes: 0 })
- 
-
- 
-  // const onChangeHandler = (e: string) => {
-  //   setPostText({ id: 0, post: e, likes: 0 })
-  // }
-
-
   const onClickHandler = () => {
     props.addPost()
    }
