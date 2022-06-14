@@ -12,22 +12,6 @@ export type AppPropsType = {
   store: StoreType
 }
 
-// export type AppPropsType = {
-//   state: {
-//     sidebar: {
-//       sideItems: SideItemType[],
-//       friends: FriendsType
-//     }
-//     profilePage: { posts: PostType[]; newPostText:string };
-//     dialogsPage: {
-//       dialogs: DialogType[];
-//       messages: MessagesType;
-//     };
-//   }
-//   addPost: ()=>void
-//   updateNewPostText: (newText: string) => void
-// }
-
 export type PostType = {
   id: number
   post: string

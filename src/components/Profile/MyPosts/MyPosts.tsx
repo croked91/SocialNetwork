@@ -1,8 +1,8 @@
 import s from './MyPosts.module.css'
-import React, { useState } from 'react'
+import React from 'react'
 import { PostType } from '../../../App'
 import Post from '../MyPosts/Posts/Post';
-import { string } from 'prop-types';
+
 
 
 type PostDataType = {
@@ -10,17 +10,6 @@ type PostDataType = {
   addPost: () => void
   updateNewPostText: (newText: string) => void
 }
-
-
-
-
-type PostTextType = {
-  id: number
-  post: string
-  likes: number
-}
-
-
 
   const MyPosts = (props: PostDataType) => {
   

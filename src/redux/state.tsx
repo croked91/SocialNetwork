@@ -135,15 +135,14 @@ export let store: StoreType = {
   },
   updateNewPostText(newText){
     this._state.profilePage.newPostText = newText
-    this._reRend()
+    this._reRend() 
   },
   subscribe(rerenderEntireTree){
     this._reRend = rerenderEntireTree
   },
   getState(){
     return this._state
-  }
-
+  },
 }
 
 
