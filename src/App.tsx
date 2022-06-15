@@ -35,8 +35,6 @@ export type MessagesType = {
   message: MessageType[]
 }
 
-
-
 export type SideItemType = {
   id: number
   title: string
@@ -63,7 +61,7 @@ const App = (props: AppPropsType) => {
       <Routes>
         <Route path='/' element={<div className='app-wriper-content'> <Outlet /> </div>} />
         <Route path='dialogs/*' element={<Dialogs title='Dialogs' state={state.dialogsPage} />} />
-        <Route path='profile' element={<Profile title='Profile' state={state.profilePage} addPost={props.store.addPost.bind(props.store)} updateNewPostText={props.store.updateNewPostText.bind(props.store)}/>} />
+        <Route path='profile' element={<Profile title='Profile' state={state.profilePage} dispatch={props.store.dispatch.bind(props.store)}/>} />
       </Routes>
     </div>
   )

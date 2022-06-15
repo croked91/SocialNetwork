@@ -53,11 +53,23 @@ export type StateType = {
 export type StoreType = {
   _state: StateType
   _reRend: ()=> void
-  addPost: ()=>void
+  // addPost: ()=>void
   updateNewPostText: (newText: string)=>void
   subscribe: (rerenderEntireTree: () => void) => void
   getState: () => StateType
+  dispatch: (action: ActionTypes ) => void
 }
+
+type AddPostType = {
+  type: "ADD-POST"
+}
+
+type UpdateNewPostTextType = {
+  type: "UPDATE-NEW-POST-TEXT"
+  newText: string
+}
+
+export type ActionTypes = AddPostType | UpdateNewPostTextType
 
 export let store: StoreType = {
   _state: {
@@ -123,26 +135,47 @@ export let store: StoreType = {
   },
   _reRend(){
   },
-  addPost(){
-    let postMessage = {
-      id: 5,
-      post: this._state.profilePage.newPostText,
-      likes: 0
-    }
-    this._state.profilePage.posts.push(postMessage)
-    this._state.profilePage.newPostText = ""
-    this._reRend()
-  },
+
+
+  // addPost(){
+  //   let postMessage = {
+  //     id: 5,
+  //     post: this._state.profilePage.newPostText,
+  //     likes: 0
+  //   }
+  //   this._state.profilePage.posts.push(postMessage)
+  //   this._state.profilePage.newPostText = ""
+  //   this._reRend()
+  // },
   updateNewPostText(newText){
     this._state.profilePage.newPostText = newText
     this._reRend() 
   },
+ 
+ 
   subscribe(rerenderEntireTree){
     this._reRend = rerenderEntireTree
   },
   getState(){
     return this._state
   },
+ 
+  dispatch(action){
+    if(action.type === "ADD-POST"){
+      let postMessage = {
+        id: 5,
+        post: this._state.profilePage.newPostText,
+        likes: 0
+      }
+      this._state.profilePage.posts.push(postMessage)
+      this._state.profilePage.newPostText = ""
+      this._reRend()
+    } else if (action.type === "UPDATE-NEW-POST-TEXT" ){
+      this._state.profilePage.newPostText = action.newText
+      this._reRend() 
+    }
+  } 
+
 }
 
 
