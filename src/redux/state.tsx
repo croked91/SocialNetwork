@@ -1,3 +1,9 @@
+
+
+
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+const ADD_POST = "ADD-POST"
+
 type PostType = {
   id: number
   post: string
@@ -52,24 +58,21 @@ export type StateType = {
 
 export type StoreType = {
   _state: StateType
-  _reRend: ()=> void
-  // addPost: ()=>void
-  updateNewPostText: (newText: string)=>void
+  _reRend: () => void
   subscribe: (rerenderEntireTree: () => void) => void
   getState: () => StateType
-  dispatch: (action: ActionTypes ) => void
+  dispatch: (action: ActionTypes) => void
 }
 
-type AddPostType = {
-  type: "ADD-POST"
-}
+export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC>
 
-type UpdateNewPostTextType = {
-  type: "UPDATE-NEW-POST-TEXT"
-  newText: string
-}
+export const addPostAC = () => ({ type: ADD_POST } as const)
 
-export type ActionTypes = AddPostType | UpdateNewPostTextType
+export const updateNewPosttAC = (newText: string) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: newText
+} as const)
+
 
 export let store: StoreType = {
   _state: {
@@ -133,35 +136,22 @@ export let store: StoreType = {
       }
     }
   },
-  _reRend(){
+  _reRend() {
   },
 
 
-  // addPost(){
-  //   let postMessage = {
-  //     id: 5,
-  //     post: this._state.profilePage.newPostText,
-  //     likes: 0
-  //   }
-  //   this._state.profilePage.posts.push(postMessage)
-  //   this._state.profilePage.newPostText = ""
-  //   this._reRend()
-  // },
-  updateNewPostText(newText){
-    this._state.profilePage.newPostText = newText
-    this._reRend() 
-  },
- 
- 
-  subscribe(rerenderEntireTree){
+
+
+
+  subscribe(rerenderEntireTree) {
     this._reRend = rerenderEntireTree
   },
-  getState(){
+  getState() {
     return this._state
   },
- 
-  dispatch(action){
-    if(action.type === "ADD-POST"){
+
+  dispatch(action) {
+    if (action.type === ADD_POST) {
       let postMessage = {
         id: 5,
         post: this._state.profilePage.newPostText,
@@ -170,12 +160,10 @@ export let store: StoreType = {
       this._state.profilePage.posts.push(postMessage)
       this._state.profilePage.newPostText = ""
       this._reRend()
-    } else if (action.type === "UPDATE-NEW-POST-TEXT" ){
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText
-      this._reRend() 
+      this._reRend()
     }
-  } 
+  }
 
 }
-
-

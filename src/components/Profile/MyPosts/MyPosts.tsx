@@ -2,7 +2,7 @@ import s from './MyPosts.module.css'
 import React from 'react'
 import { PostType } from '../../../App'
 import Post from '../MyPosts/Posts/Post';
-import { ActionTypes } from '../../../redux/state'
+import { ActionTypes, addPostAC, updateNewPosttAC  } from '../../../redux/state'
 
 
 
@@ -11,15 +11,24 @@ type PostDataType = {
   dispatch: (action: ActionTypes) => void
 }
 
+
+
 const MyPosts = (props: PostDataType) => {
 
   let newPostElement = React.createRef<HTMLInputElement>()
 
   const onClickHandler = () => {
-    props.dispatch({ type: "ADD-POST" })
+    props.dispatch(addPostAC())
   }
 
   let postsData = props.state.posts.map(post => (<Post id={post.id} message={post.post} likes={post.likes} />))
+
+  let onPostChange = () => {
+    let text = newPostElement.current!.value
+    let action = updateNewPosttAC(text)
+    props.dispatch(action)
+  }
+
 
   return (
     <div className={s.postBlocks}>
@@ -29,7 +38,8 @@ const MyPosts = (props: PostDataType) => {
         <input
           ref={newPostElement}
           value={props.state.newPostText}
-          onChange={(e) => props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: e.currentTarget.value })} />
+          onChange={onPostChange}
+        />
         <button onClick={() => onClickHandler()} className={s.button}>Publish post</button>
       </div>
       <div className={s.posts}>
