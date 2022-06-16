@@ -4,6 +4,9 @@
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const ADD_POST = "ADD-POST"
 
+const ADD_NEW_MESSGES_BODY = "UPDATE_NEW_MESSGES_BODY"
+const SEND_MESSAGE = "SEND_MESSAGE"
+
 type PostType = {
   id: number
   post: string
@@ -25,6 +28,7 @@ type MessageType = {
 type MessagesType = {
   user: string
   message: MessageType[]
+  newMessageBody: string
 }
 
 type SideItemType = {
@@ -64,14 +68,21 @@ export type StoreType = {
   dispatch: (action: ActionTypes) => void
 }
 
-export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC>
+export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC> | ReturnType<typeof addNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
 export const addPostAC = () => ({ type: ADD_POST } as const)
+
+export const addNewMessageBodyAC = ( newText: string) => ({ 
+  type: ADD_NEW_MESSGES_BODY, 
+  newText: newText
+  } as const)
 
 export const updateNewPosttAC = (newText: string) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: newText
 } as const)
+
+export const sendMessageAC = () => ({ type: SEND_MESSAGE} as const)
 
 
 export let store: StoreType = {
@@ -111,6 +122,7 @@ export let store: StoreType = {
           { id: 11, name: "It's paw paw buggie", authorId: 2 },
           { id: 12, name: "It's paw paw buggie", authorId: 1 },
         ],
+        newMessageBody: ""
       }
     },
     sidebar: {
@@ -139,10 +151,6 @@ export let store: StoreType = {
   _reRend() {
   },
 
-
-
-
-
   subscribe(rerenderEntireTree) {
     this._reRend = rerenderEntireTree
   },
@@ -163,7 +171,17 @@ export let store: StoreType = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText
       this._reRend()
+    } else if (action.type === ADD_NEW_MESSGES_BODY) {
+      this._state.dialogsPage.messages.newMessageBody = action.newText
+      this._reRend()
+    } else if (action.type === SEND_MESSAGE) {
+      let newMessage = {
+        id: 7,
+        name: this._state.dialogsPage.messages.newMessageBody,
+        authorId: 1}
+      this._state.dialogsPage.messages.newMessageBody = ""
+      this._state.dialogsPage.messages.message.push(newMessage)
     }
-  }
+  } 
 
 }
