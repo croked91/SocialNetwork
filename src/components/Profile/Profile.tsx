@@ -1,6 +1,7 @@
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import {ActionTypes, PostType} from '../../redux/state' 
+import { PostType} from '../../redux/state' 
+import { ProfileActionTypes } from '../../redux/profileReducer';
 
 
 
@@ -8,7 +9,7 @@ import {ActionTypes, PostType} from '../../redux/state'
 type ProfileTypeProps = {
   title: String
   state: { posts: PostType[]; newPostText: string}
-  dispatch: (action: ActionTypes ) => void
+  dispatch: (action: ProfileActionTypes ) => void
 }
 
 const Profile = (props:ProfileTypeProps) => {

@@ -1,12 +1,13 @@
-import React from "react";
-import { ActionTypes, addNewMessageBodyAC, MessagesType, sendMessageAC } from "../../../../redux/state";
+import React, {ChangeEvent} from "react";
+import { DialogsActionTypes, addNewMessageBodyAC, sendMessageAC } from "../../../../redux/dialogsReducer";
+import {MessagesType} from "../../../../redux/state";
 
 
 
 
 type InputButtonType = {
     state: { messages: MessagesType;}
-    dispatch: (action: ActionTypes ) => void
+    dispatch: (action: DialogsActionTypes ) => void
 }
 
 export const InputButton = (props: InputButtonType) => {
@@ -16,8 +17,8 @@ export const InputButton = (props: InputButtonType) => {
         props.dispatch(sendMessageAC())
     }
 
-    let updateNewMessageHandler = (newText: string) => {
-        let action = addNewMessageBodyAC(newText)
+    let updateNewMessageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        let action = addNewMessageBodyAC(e.currentTarget.value)
         props.dispatch(action)      
     }
 
@@ -27,7 +28,7 @@ export const InputButton = (props: InputButtonType) => {
         <div>
             <input
             value={newMessagesBody} 
-            onChange={(e)=>updateNewMessageHandler(e.currentTarget.value)} 
+            onChange={updateNewMessageHandler} 
             placeholder="Enter your message"
             />
             <img onClick={sendMessagesOnClick} src="https://cdn-icons-png.flaticon.com/512/724/724954.png" />

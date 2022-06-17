@@ -3,11 +3,12 @@ import { Message } from "./MessagesItem";
 
 import style from './MessagesBlock.module.css'
 import { InputButton } from "./InputButton/InputButton";
-import { ActionTypes, MessagesType } from "../../../redux/state";
+import { MessagesType } from "../../../redux/state";
+import { DialogsActionTypes } from "../../../redux/dialogsReducer";
 
 type MessageBlockType = {
     state: { messages: MessagesType;}
-    dispatch: (action: ActionTypes ) => void
+    dispatch: (action: DialogsActionTypes ) => void
 }
 
 export const MessageBlock =(props: MessageBlockType)=>{

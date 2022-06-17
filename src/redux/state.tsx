@@ -1,11 +1,10 @@
+import { DialogsActionTypes, dialogsReducer } from "./dialogsReducer"
+import {ProfileActionTypes, profileReducer  } from "./profileReducer"
 
 
 
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
-const ADD_POST = "ADD-POST"
 
-const ADD_NEW_MESSGES_BODY = "UPDATE_NEW_MESSGES_BODY"
-const SEND_MESSAGE = "SEND_MESSAGE"
+
 
 export type PostType = {
   id: number
@@ -68,23 +67,7 @@ export type StoreType = {
   dispatch: (action: ActionTypes) => void
 }
 
-export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC> | ReturnType<typeof addNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
-
-//Actions
-export const addPostAC = () => ({ type: ADD_POST } as const)
-
-export const addNewMessageBodyAC = ( newText: string) => ({ 
-  type: ADD_NEW_MESSGES_BODY, 
-  newText: newText
-  } as const)
-
-export const updateNewPosttAC = (newText: string) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: newText
-} as const)
-
-export const sendMessageAC = () => ({ type: SEND_MESSAGE} as const)
-
+export type ActionTypes = DialogsActionTypes | ProfileActionTypes
 
 export let store: StoreType = {
   _state: {
@@ -160,30 +143,12 @@ export let store: StoreType = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let postMessage = {
-        id: 5,
-        post: this._state.profilePage.newPostText,
-        likes: 0
-      }
-      this._state.profilePage.posts.push(postMessage)
-      this._state.profilePage.newPostText = ""
-      this._reRend()
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText
-      this._reRend()
-    } else if (action.type === ADD_NEW_MESSGES_BODY) {
-      this._state.dialogsPage.messages.newMessageBody = action.newText
-      this._reRend()
-    } else if (action.type === SEND_MESSAGE) {
-      let newMessage = {
-        id: 7,
-        name: this._state.dialogsPage.messages.newMessageBody,
-        authorId: 1}        
-        this._state.dialogsPage.messages.newMessageBody = ""  
-        this._state.dialogsPage.messages.message.push(newMessage)   
-        this._reRend()         
-    }
+
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+
+    this._reRend() 
+
   } 
 
 }

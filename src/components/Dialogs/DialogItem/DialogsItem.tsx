@@ -1,6 +1,6 @@
 import s from './../Dialogs.module.css'
-import { BrowserRouter, NavLink } from 'react-router-dom'
-import { InputButton } from '../Messages/InputButton/InputButton'
+import { NavLink } from 'react-router-dom'
+
 
 type DialogsTypeProps = {
     title: string

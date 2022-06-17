@@ -2,12 +2,13 @@ import s from './Dialogs.module.css'
 import { DialogItem } from './DialogItem/DialogsItem'
 import { ActionTypes, DialogType, MessagesType } from '../../redux/state'
 import { MessageBlock } from './Messages/MessageBlock'
+import { DialogsActionTypes } from '../../redux/dialogsReducer'
 
 
 type ConstTypeProps = {
     title: string
     state: { dialogs: DialogType[]; messages: MessagesType;}
-    dispatch: (action: ActionTypes ) => void
+    dispatch: (action: DialogsActionTypes ) => void
 }
 
 
