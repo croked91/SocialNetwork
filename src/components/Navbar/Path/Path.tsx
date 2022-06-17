@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
+import { SideItemType } from '../../../redux/state'
 import s from '../Navbar.module.css'
-import { SideItemType } from '../../../App';
+
 
 export const Path = (props:SideItemType) => {
     return (

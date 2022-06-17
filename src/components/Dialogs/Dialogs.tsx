@@ -1,13 +1,13 @@
 import s from './Dialogs.module.css'
 import { DialogItem } from './DialogItem/DialogsItem'
-import { Message } from './Messages/MessagesItem'
-import { DialogType, MessagesType } from '../../App'
+import { ActionTypes, DialogType, MessagesType } from '../../redux/state'
 import { MessageBlock } from './Messages/MessageBlock'
 
 
 type ConstTypeProps = {
     title: string
     state: { dialogs: DialogType[]; messages: MessagesType;}
+    dispatch: (action: ActionTypes ) => void
 }
 
 
@@ -21,8 +21,8 @@ const Dialogs = (props: ConstTypeProps) => {
                 {newDialogsData}
             </div>
             <div className={s.messages}>
-                <MessageBlock state={props.state} />
-            </div>
+                <MessageBlock state={props.state} dispatch={props.dispatch}/>
+            </div> 
         </div>
     )
 }

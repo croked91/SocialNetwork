@@ -7,42 +7,42 @@ const ADD_POST = "ADD-POST"
 const ADD_NEW_MESSGES_BODY = "UPDATE_NEW_MESSGES_BODY"
 const SEND_MESSAGE = "SEND_MESSAGE"
 
-type PostType = {
+export type PostType = {
   id: number
   post: string
   likes: number
 }
 
-type DialogType = {
+export type DialogType = {
   id: number
   name: string
   avaSourse: string
 }
 
-type MessageType = {
+export type MessageType = {
   id: number
   name: string
   authorId: number
 }
 
-type MessagesType = {
+export type MessagesType = {
   user: string
   message: MessageType[]
   newMessageBody: string
 }
 
-type SideItemType = {
+export type SideItemType = {
   id: number
   title: string
   icon: string
 }
 
-type FriendsType = {
+export type FriendsType = {
   blockTitle: string,
   friendsList: FriendType[]
 }
 
-type FriendType = {
+export type FriendType = {
   id: number
   name: string
   avaSourse: string
@@ -70,6 +70,7 @@ export type StoreType = {
 
 export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC> | ReturnType<typeof addNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
+//Actions
 export const addPostAC = () => ({ type: ADD_POST } as const)
 
 export const addNewMessageBodyAC = ( newText: string) => ({ 
@@ -178,9 +179,10 @@ export let store: StoreType = {
       let newMessage = {
         id: 7,
         name: this._state.dialogsPage.messages.newMessageBody,
-        authorId: 1}
-      this._state.dialogsPage.messages.newMessageBody = ""
-      this._state.dialogsPage.messages.message.push(newMessage)
+        authorId: 1}        
+        this._state.dialogsPage.messages.newMessageBody = ""  
+        this._state.dialogsPage.messages.message.push(newMessage)   
+        this._reRend()         
     }
   } 
 

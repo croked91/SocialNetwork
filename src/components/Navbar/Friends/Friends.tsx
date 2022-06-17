@@ -1,6 +1,7 @@
-import { FriendsType, FriendType } from '../../../App'
+
 import { FriendBlock } from './FriendBlock/FriendBlock'
 import s from '../Navbar.module.css'
+import { FriendsType } from '../../../redux/state'
 
 type FriendsComponentsType = {
     state: FriendsType

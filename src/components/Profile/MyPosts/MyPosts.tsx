@@ -1,8 +1,7 @@
 import s from './MyPosts.module.css'
 import React from 'react'
-import { PostType } from '../../../App'
 import Post from '../MyPosts/Posts/Post';
-import { ActionTypes, addPostAC, updateNewPosttAC  } from '../../../redux/state'
+import { ActionTypes, addPostAC, PostType, updateNewPosttAC  } from '../../../redux/state'
 
 
 
