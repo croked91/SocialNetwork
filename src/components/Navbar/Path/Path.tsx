@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { SideItemType } from '../../../redux/state'
+import { SideItemType } from '../../../redux/store'
 import s from '../Navbar.module.css'
 
 

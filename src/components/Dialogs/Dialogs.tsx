@@ -1,6 +1,6 @@
 import s from './Dialogs.module.css'
 import { DialogItem } from './DialogItem/DialogsItem'
-import { ActionTypes, DialogType, MessagesType } from '../../redux/state'
+import { ActionTypes, DialogType, MessagesType } from '../../redux/store'
 import { MessageBlock } from './Messages/MessageBlock'
 import { DialogsActionTypes } from '../../redux/dialogsReducer'
 

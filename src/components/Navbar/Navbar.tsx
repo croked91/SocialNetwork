@@ -1,7 +1,7 @@
 import s from './Navbar.module.css'
 import { Path } from './Path/Path';
 import { Friends } from './Friends/Friends';
-import { FriendsType, SideItemType } from '../../redux/state';
+import { FriendsType, SideItemType } from '../../redux/store';
 
 type NavbarType = {
   state: { sideItems: SideItemType[]; friends: FriendsType}

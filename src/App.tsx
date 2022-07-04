@@ -4,7 +4,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
-import { StoreType } from './redux/state';
+import { StoreType } from './redux/store';
 
 
 

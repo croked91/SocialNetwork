@@ -4,7 +4,7 @@ import './index.css';
 import { Message } from './components/Dialogs/Messages/MessagesItem';
 import { DialogItem } from './components/Dialogs/DialogItem/DialogsItem';
 import Post from './components/Profile/MyPosts/Posts/Post';
-import { store }  from './redux/state'
+import { store }  from './redux/store'
 
 
 
