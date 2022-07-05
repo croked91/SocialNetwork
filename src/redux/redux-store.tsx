@@ -1,3 +1,14 @@
-import { createStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { dialogsReducer } from "./dialogsReducer";
+import { profileReducer } from "./profileReducer";
 
-let store = createStore(); 
+
+
+let reducers = combineReducers({
+    profilePage: profileReducer,
+    dialogsPage: dialogsReducer
+})
+
+export const store = configureStore({
+    reducer: reducers,
+  });
