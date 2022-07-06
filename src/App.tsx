@@ -5,16 +5,17 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { StoreType } from './redux/store';
+import { ReduxStoreType } from './redux/redux-store';
 
 
 
 export type AppPropsType = {
-  store: StoreType
+  store: ReduxStoreType
 }
 
 
 const App = (props: AppPropsType) => {
-  let state = props.store.getState()
+  let state = props.store
   return (
     <div className='app-wriper'>
       <Header />

@@ -1,4 +1,4 @@
-import { ActionTypes, DialogType, MessagesType } from "./store";
+import { DialogType, MessagesType } from "./store";
 export type DialogsActionTypes =  ReturnType<typeof addNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
 
@@ -6,12 +6,15 @@ export type DialogsActionTypes =  ReturnType<typeof addNewMessageBodyAC> | Retur
 const ADD_NEW_MESSGES_BODY = "UPDATE_NEW_MESSGES_BODY"
 const SEND_MESSAGE = "SEND_MESSAGE"
 
+type DialogActionTypes = AddNewMessageBodyACType | SendMessageAC
+type AddNewMessageBodyACType = ReturnType<typeof addNewMessageBodyAC>
+type SendMessageAC = ReturnType<typeof sendMessageAC>
 type DialogsReducerStateType = {
     dialogs: DialogType[];
     messages: MessagesType;
   }
 
-  let initialState = {
+ export let initialState = {
     dialogs: [
       { id: 1, name: "Egor", avaSourse: 'https://yt3.ggpht.com/yti/APfAmoGgMQ6-OWgGlikFCskVa51OV8SCZdi_CY3Fb4mLSw=s88-c-k-c0x00ffffff-no-rj-mo' },
       { id: 2, name: "Kolya", avaSourse: 'https://yt3.ggpht.com/ytc/AKedOLQx611hSDa1qiS1edfsm36nwLPPFjlsYWTwRmHb=s900-c-k-c0x00ffffff-no-rj' },
@@ -43,7 +46,7 @@ type DialogsReducerStateType = {
   }
 
 
-export const dialogsReducer = (state: DialogsReducerStateType = initialState, action: ActionTypes) => {
+export const dialogsReducer = (state: DialogsReducerStateType = initialState, action: DialogActionTypes) => {
     switch(action.type){
         case ADD_NEW_MESSGES_BODY:
             state.messages.newMessageBody = action.newText

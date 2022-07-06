@@ -1,17 +1,30 @@
-import { ActionTypes, PostType } from "./store";
-export type ProfileActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPosttAC>;
+import { PostType } from "./store";
 
 
 
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const ADD_POST = "ADD-POST"
 
+export type ProfileActionTypes = UpdateNewPosttACType | AddPostACAC
+type UpdateNewPosttACType = ReturnType<typeof updateNewPosttAC>
+type AddPostACAC = ReturnType<typeof addPostAC>
 type ProfileReducerStateType =
-  { posts: PostType[]; 
-    newPostText: string }
+  {
+    posts: PostType[];
+    newPostText: string
+  }
 
-export const profileReducer = (state: ProfileReducerStateType , action: ActionTypes) => {
-   switch(action.type){
+let initialState = {
+  posts: [
+    { id: 1, post: "Hi, it's my first post", likes: 15 },
+    { id: 2, post: "Hi, it's my second post", likes: 20 },
+    { id: 3, post: "Hi, it's my third post", likes: 24 },
+  ],
+  newPostText: ''
+}
+
+export const profileReducer = (state: ProfileReducerStateType = initialState , action: ProfileActionTypes) => {
+  switch (action.type) {
     case ADD_POST:
       let postMessage = {
         id: 5,
@@ -26,8 +39,10 @@ export const profileReducer = (state: ProfileReducerStateType , action: ActionTy
       return state;
     default:
       return state;
-   }
+  }
 }
+
+
 
 export const updateNewPosttAC = (newText: string) => ({
   type: UPDATE_NEW_POST_TEXT,
