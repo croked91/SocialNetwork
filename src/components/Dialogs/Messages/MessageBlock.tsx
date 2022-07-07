@@ -8,7 +8,6 @@ import { DialogsActionTypes } from "../../../redux/dialogsReducer";
 
 type MessageBlockType = {
     state: { messages: MessagesType;}
-    dispatch: (action: DialogsActionTypes ) => void
 }
 
 export const MessageBlock =(props: MessageBlockType)=>{
@@ -23,7 +22,7 @@ export const MessageBlock =(props: MessageBlockType)=>{
             {newMessagesData}
             </div>
             <div className={style.inputButton}>
-                <InputButton state={props.state} dispatch={props.dispatch} />
+                <InputButton state={props.state} />
             </div>
         </div>
     )

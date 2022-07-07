@@ -5,7 +5,7 @@ import { sidebarReducer } from "./sidebarReducer";
 
 export type ReduxStoreType = ReturnType<typeof reducers>
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer

@@ -8,7 +8,6 @@ import { DialogsActionTypes } from '../../redux/dialogsReducer'
 type ConstTypeProps = {
     title: string
     state: { dialogs: DialogType[]; messages: MessagesType;}
-    dispatch: (action: DialogsActionTypes ) => void
 }
 
 
@@ -22,7 +21,7 @@ const Dialogs = (props: ConstTypeProps) => {
                 {newDialogsData}
             </div>
             <div className={s.messages}>
-                <MessageBlock state={props.state} dispatch={props.dispatch}/>
+                <MessageBlock state={props.state}/>
             </div> 
         </div>
     )

@@ -3,22 +3,22 @@ import React from 'react'
 import Post from '../MyPosts/Posts/Post';
 import { PostType, } from '../../../redux/store'
 import { ProfileActionTypes, addPostAC, updateNewPosttAC } from '../../../redux/profileReducer';
+import { useDispatch } from 'react-redux';
 
 
 
 type PostDataType = {
   state: { posts: PostType[]; newPostText: string }
-  dispatch: (action: ProfileActionTypes) => void
 }
 
 
 
 const MyPosts = (props: PostDataType) => {
-
+  const dispatch = useDispatch()
   let newPostElement = React.createRef<HTMLInputElement>()
 
   const onClickHandler = () => {
-    props.dispatch(addPostAC())
+    dispatch(addPostAC())
   }
 
   let postsData = props.state.posts.map(post => (<Post id={post.id} message={post.post} likes={post.likes} />))
@@ -26,7 +26,7 @@ const MyPosts = (props: PostDataType) => {
   let onPostChange = () => {
     let text = newPostElement.current!.value
     let action = updateNewPosttAC(text)
-    props.dispatch(action)
+    dispatch(action)
   }
 
 
