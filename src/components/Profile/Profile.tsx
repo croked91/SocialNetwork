@@ -2,6 +2,7 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import { PostType} from '../../redux/store' 
 import { ProfileActionTypes } from '../../redux/profileReducer';
+import { MyPostContainer } from './MyPosts/MyPostsContainer';
 
 
 
@@ -17,7 +18,7 @@ const Profile = (props:ProfileTypeProps) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts state={props.state}/>
+      <MyPostContainer />
     </div>
   )
 }

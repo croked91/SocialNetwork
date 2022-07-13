@@ -8,11 +8,10 @@ const ADD_POST = "ADD-POST"
 export type ProfileActionTypes = UpdateNewPosttACType | AddPostACAC
 type UpdateNewPosttACType = ReturnType<typeof updateNewPosttAC>
 type AddPostACAC = ReturnType<typeof addPostAC>
-type ProfileReducerStateType =
-  {
-    posts: PostType[];
-    newPostText: string
-  }
+type ProfileReducerStateType = {
+  posts: PostType[];
+  newPostText: string
+}
 
 let initialState = {
   posts: [
@@ -23,20 +22,27 @@ let initialState = {
   newPostText: ''
 }
 
-export const profileReducer = (state: ProfileReducerStateType = initialState , action: ProfileActionTypes) => {
+export const profileReducer = (state: ProfileReducerStateType = initialState, action: ProfileActionTypes) => {
+
+  let newState: ProfileReducerStateType
+
   switch (action.type) {
     case ADD_POST:
+      newState = JSON.parse(JSON.stringify(state))
       let postMessage = {
         id: 5,
-        post: state.newPostText,
+        post: newState.newPostText,
         likes: 0
       }
-      state.posts.push(postMessage)
-      state.newPostText = ""
-      return state;
+      newState.posts.push(postMessage)
+      newState.newPostText = ""
+      return newState;
+
     case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText
-      return state;
+      newState = JSON.parse(JSON.stringify(state))
+      newState.newPostText = action.newText
+      return newState;
+
     default:
       return state;
   }
