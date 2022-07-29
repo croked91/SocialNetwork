@@ -23,26 +23,25 @@ let initialState = {
 }
 
 export const profileReducer = (state: ProfileReducerStateType = initialState, action: ProfileActionTypes) => {
-
-  let newState: ProfileReducerStateType
-
   switch (action.type) {
-    case ADD_POST:
-      newState = JSON.parse(JSON.stringify(state))
-      let postMessage = {
+    case ADD_POST: {
+      const postMessage = {
         id: 5,
-        post: newState.newPostText,
+        post: state.newPostText,
         likes: 0
       }
-      newState.posts.push(postMessage)
-      newState.newPostText = ""
-      return newState;
-
-    case UPDATE_NEW_POST_TEXT:
-      newState = JSON.parse(JSON.stringify(state))
-      newState.newPostText = action.newText
-      return newState;
-
+      return {
+        ...state,
+        posts: [...state.posts, postMessage],
+        newPostText: ""
+      };
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newText
+      };
+    }
     default:
       return state;
   }

@@ -6,8 +6,6 @@ import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ReduxStoreType } from './redux/redux-store';
 import { useSelector } from 'react-redux';
-import { connect } from 'http2';
-import { connectAdvanced } from 'react-redux';
 
 
 
@@ -20,13 +18,7 @@ const App = () => {
 
   const state = useSelector((state: ReduxStoreType)=>state)
 
-  const mapStateToProps = () => {
-
-  }
-
-
-  const i = connectAdvanced(mapStateToProps, mapDispatchToProps)(App)
-
+  
   return (
     <div className='app-wriper'>
       <Header />
