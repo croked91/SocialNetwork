@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ReduxStoreType } from './redux/redux-store';
 import { useSelector } from 'react-redux';
+import { Users } from './components/Users/Users';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/' element={<div className='app-wriper-content'> <Outlet /> </div>} />
         <Route path='dialogs/*' element={<Dialogs title='Dialogs' state={state.dialogsPage}/>} />
         <Route path='profile' element={<Profile title='Profile' state={state.profilePage}/>} />
+        <Route path='users' element={<Users />} />
       </Routes>
     </div>
   )
