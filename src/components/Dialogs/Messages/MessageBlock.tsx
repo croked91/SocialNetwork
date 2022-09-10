@@ -3,7 +3,7 @@ import { Message } from "./MessagesItem";
 
 import style from './MessagesBlock.module.css'
 import { InputButton } from "./InputButton/InputButton";
-import { MessagesType } from "../../../redux/store";
+import { MessagesType } from "../../../redux/types";
 import { DialogsActionTypes } from "../../../redux/dialogsReducer";
 
 type MessageBlockType = {

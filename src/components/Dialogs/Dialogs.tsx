@@ -1,6 +1,6 @@
 import s from './Dialogs.module.css'
 import { DialogItem } from './DialogItem/DialogsItem'
-import { DialogType, MessagesType } from '../../redux/store'
+import { DialogType, MessagesType } from '../../redux/types'
 import { MessageBlock } from './Messages/MessageBlock'
 
 

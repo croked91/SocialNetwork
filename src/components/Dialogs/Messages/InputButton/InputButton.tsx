@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import { useDispatch } from "react-redux";
 import { DialogsActionTypes, addNewMessageBodyAC, sendMessageAC } from "../../../../redux/dialogsReducer";
-import {MessagesType} from "../../../../redux/store";
+import {MessagesType} from "../../../../redux/types";
 
 
 

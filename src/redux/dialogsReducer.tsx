@@ -1,4 +1,4 @@
-import { DialogType, MessagesType } from "./store";
+import { DialogType, MessagesType } from "./types";
 export type DialogsActionTypes = ReturnType<typeof addNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
 

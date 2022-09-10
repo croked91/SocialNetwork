@@ -1,6 +1,6 @@
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import { PostType} from '../../redux/store' 
+import { PostType} from '../../redux/types' 
 import { ProfileActionTypes } from '../../redux/profileReducer';
 import { MyPostContainer } from './MyPosts/MyPostsContainer';
 

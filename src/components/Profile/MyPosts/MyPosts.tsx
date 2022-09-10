@@ -1,7 +1,7 @@
 import s from './MyPosts.module.css'
 import React from 'react'
 import Post from '../MyPosts/Posts/Post';
-import { PostType, } from '../../../redux/store'
+import { PostType, } from '../../../redux/types'
 import { addPostAC, updateNewPosttAC } from '../../../redux/profileReducer';
 import { useDispatch } from 'react-redux';
 

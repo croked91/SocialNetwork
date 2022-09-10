@@ -1,4 +1,4 @@
-import { FriendsType, SideItemType } from "./store";
+import { FriendsType, SideItemType } from "./types";
 
 export type SidebarType = {
   sideItems: SideItemType[],
@@ -11,7 +11,7 @@ let initialState = {
   sideItems: [
     { id: 1, title: 'Profile', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
     { id: 2, title: 'Dialogs', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
-    { id: 3, title: 'News', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
+    { id: 3, title: 'Users', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
     { id: 4, title: 'Music', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
     { id: 5, title: 'Settings', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
     { id: 6, title: 'Photos', icon: 'https://img.icons8.com/nolan/64/electronic-identity-card.png' },
